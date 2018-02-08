@@ -62,16 +62,17 @@ public class MainActivity extends AppCompatActivity {
         double tip=Double.parseDouble(tiplabel);
 
         double tiptotal=bill*(tip/100);
-        double billresult;
+        double billresult=bill+tiptotal;
+        double result;
 
         if (checkBox.isChecked()) {
-            billresult=bill/diner;
+            result=billresult/diner;
         }
         else {
-            billresult=bill;
+            result=billresult;
         }
-        outputBill.setText(billresult+"");
-        outputTip.setText(tiptotal+"");
+        outputBill.setText(String.format("%.2f",result));
+        outputTip.setText(String.format("%.2f",tiptotal));
 
     }
 
