@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     tools:context="com.example.android.tipcalculator.MainActivity"
     android:layout_margin="10dp"
-    android:background="#fd9">
+    android:background="#fd9"
+    android:id="@+id/layout">
 
     <TextView
         android:id="@+id/titleView"
@@ -150,5 +151,13 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/output_bill"
         android:onClick="buttonPressed"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="COLOR"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/convertButton"
+        android:onClick="buttonPressed2"/>
 
 </RelativeLayout>

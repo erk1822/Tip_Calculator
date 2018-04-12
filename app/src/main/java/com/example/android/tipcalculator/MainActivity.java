@@ -1,10 +1,12 @@
 package com.example.android.tipcalculator;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.CheckBox;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox checkBox;
     private TextView barLabel;
     private SeekBar bar;
+    private RelativeLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         checkBox=findViewById(R.id.checkBox);
         barLabel=findViewById(R.id.barLabel);
         bar = findViewById(R.id.seekBar);
+        layout = findViewById(R.id.layout);
+
+        //layout.setBackgroundColor(0xFFFFFF00);
+
         bar.setOnSeekBarChangeListener(
                 new SeekBar.OnSeekBarChangeListener() {
                     @Override
@@ -50,6 +57,19 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
     }
+
+    public void buttonPressed2(View v) {
+        Intent i = new Intent(this, ColorActivity.class);
+        startActivityForResult(i,1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        int color = data.getIntExtra("COLOR", 0xFFFF0000);
+        layout.setBackgroundColor(color);
+    }
+
+
 
     public void buttonPressed(View v) {
         String inputbill=billView.getText().toString();
